@@ -1,8 +1,8 @@
-import db
+import transwarp.db
 import hashlib
 from models import User, Blog, Comment
 if __name__ == '__main__':
-    db.create_engine('root', 'root', 'awesome', host='192.168.56.104')
+    transwarp.db.create_engine('root', 'root', 'awesome', host='192.168.56.104')
     u = User(name='admin', email='admin@example.com', password='admin', image='about:blank')
     u.update()
     import logging

@@ -1,7 +1,7 @@
 # coding=utf-8
 
-from orm import Model, StringField, BooleanField, FloatField, TextField
-from db import next_int
+from transwarp.orm import Model, StringField, BooleanField, FloatField, TextField
+from transwarp.db import next_int
 import time
 
 
