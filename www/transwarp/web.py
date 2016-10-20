@@ -5,7 +5,7 @@ try:
 except ImportError:
     from StringIO import StringIO
 
-ctx = threading.local
+ctx = threading.local()
 
 
 class Dict(dict):
@@ -347,7 +347,7 @@ def _static_file_generator(fpath):
 class StaticFileRoute(object):
     def __init__(self):
         self.method = 'GET'
-        self.is_static = True
+        self.is_static = False
         self.route = re.compile(r'^/static/(.+)$')
 
     def match(self, url):
@@ -755,7 +755,7 @@ class WSGIApplication(object):
     def get_wsgi_application(self, debug=False):
         self._check_not_runnning()
         if debug:
-            self._get_dynamic.append(StaticFileRoute)
+            self._get_dynamic.append(StaticFileRoute())
         self._running = True
         _application = Dict(document_root=self._document_root)
 
